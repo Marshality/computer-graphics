@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainwidget</class>
+ <widget class="QMainWindow" name="mainwidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>943</width>
+    <height>642</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>mainwidget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: white</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>10</y>
+      <width>651</width>
+      <height>621</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white;
+border: 1px solid black;</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="ddaFlag">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>31</y>
+      <width>51</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>ЦДА</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="brFFlag">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>61</y>
+      <width>221</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>Брезенхем (действительный)</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="brIntFlag">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>91</y>
+      <width>221</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>Брезенхем (целочисленный)</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="brSFlag">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>121</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>Брезенхем (сглаживание)</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="stdFlag">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>151</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>Стандарт</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bgColor">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>211</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#bgColor {
+background: lightgrey;
+font-family: Menlo;
+font-size: 15px;
+border-radius: 4px;
+border: 1px solid black;
+color: black;
+}
+#bgColor:hover {
+background: silver;
+color: green
+}
+#bgColor:pressed {
+background: lightgrey;
+font-size: 17px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Цвет фона</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lineColor">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>251</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#lineColor {
+background: lightgrey;
+font-family: Menlo;
+font-size: 15px;
+border-radius: 4px;
+border: 1px solid black;
+color: black;
+}
+#lineColor:hover {
+background: silver;
+color: green
+}
+#lineColor:pressed {
+background: lightgrey;
+font-size: 17px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Цвет линии</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="bgView">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>211</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="lineView">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>251</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>331</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>X1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>371</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>X2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>331</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>Y1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>371</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>Y2</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="x1_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>331</y>
+      <width>51</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="x2_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>361</y>
+      <width>51</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="y1_input">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>331</y>
+      <width>51</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="y2_input">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>361</y>
+      <width>51</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lineBtn">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>411</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#lineBtn {
+background: lightgrey;
+font-family: Menlo;
+font-size: 15px;
+border-radius: 4px;
+border: 1px solid black;
+color: black;
+}
+#lineBtn:hover {
+background: silver;
+color: green
+}
+#lineBtn:pressed {
+background: lightgrey;
+font-size: 17px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Линия</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>471</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>D</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>471</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: darkred; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="text">
+     <string>H</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="d_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>471</y>
+      <width>51</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="h_input">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>471</y>
+      <width>51</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sunBtn">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>521</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#sunBtn {
+background: lightgrey;
+font-family: Menlo;
+font-size: 15px;
+border-radius: 4px;
+border: 1px solid black;
+color: black;
+}
+#sunBtn:hover {
+background: silver;
+color: green
+}
+#sunBtn:pressed {
+background: lightgrey;
+font-size: 17px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Пучок</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clearBtn">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>581</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#clearBtn {
+background: lightgrey;
+font-family: Menlo;
+font-size: 15px;
+border-radius: 4px;
+border: 1px solid black;
+color: black;
+}
+#clearBtn:hover {
+background: silver;
+color: red
+}
+#clearBtn:pressed {
+background: lightgrey;
+font-size: 17px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Очистить</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>10</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: grey; font-family: Menlo; font-size: 16px;</string>
+    </property>
+    <property name="text">
+     <string>Алгоритмы:</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
