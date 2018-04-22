@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>937</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: lightgrey</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>215</x>
+      <y>11</y>
+      <width>711</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white;
+border: 1px solid black;
+border-radius: 2px;</string>
+    </property>
+    <property name="interactive">
+     <bool>true</bool>
+    </property>
+    <property name="sceneRect">
+     <rectf>
+      <x>0.000000000000000</x>
+      <y>0.000000000000000</y>
+      <width>0.000000000000000</width>
+      <height>0.000000000000000</height>
+     </rectf>
+    </property>
+    <property name="transformationAnchor">
+     <enum>QGraphicsView::AnchorViewCenter</enum>
+    </property>
+    <property name="resizeAnchor">
+     <enum>QGraphicsView::NoAnchor</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="moveButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#moveButton {
+background: white;
+color: balck;
+border-radius: 3px;
+border: 1px solid black;
+font-size: 15px;
+font-family: Arial;
+}
+#moveButton:hover
+{
+	background: darkgrey;
+	color: white;
+	border: 1px solid white;
+	font-size: 18px;
+}
+#moveButton:pressed
+{
+	background: white;
+	color: black;
+	border: 1px solid black;
+}</string>
+    </property>
+    <property name="text">
+     <string>Перенос</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="scaleButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>250</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#scaleButton {
+background: white;
+color: balck;
+border-radius: 3px;
+font-size: 15px;
+border: 1px solid black;
+font-family: Arial;
+}
+#scaleButton:hover
+{
+	background: darkgrey;
+	color: white;
+	border: 1px solid white;
+	font-size: 18px;
+}
+#scaleButton:pressed
+{
+	background: white;
+	color: black;
+	border: 1px solid black;
+}</string>
+    </property>
+    <property name="text">
+     <string>Масштаб</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rotateButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>400</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#rotateButton {
+background: white;
+color: balck;
+font-size: 15px;
+border-radius: 3px;
+border: 1px solid black;
+font-family: Arial;
+}
+#rotateButton:hover
+{
+	background: darkgrey;
+	color: white;
+	border: 1px solid white;
+	font-size: 18px;
+}
+#rotateButton:pressed
+{
+	background: white;
+	color: black;
+	border: 1px solid black;
+}</string>
+    </property>
+    <property name="text">
+     <string>Поворот</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="startButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>520</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#startButton {
+background: white;
+color: balck;
+border-radius: 3px;
+border: 1px solid black;
+font-size: 15px;
+font-family: Arial;
+}
+#startButton:hover
+{
+	background: darkgrey;
+	color: white;
+	border: 1px solid white;
+	font-size: 18px;
+}
+#startButton:pressed
+{
+	background: white;
+	color: black;
+	border: 1px solid black;
+}</string>
+    </property>
+    <property name="text">
+     <string>В начало</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>480</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#backButton {
+background: white;
+color: balck;
+border-radius: 3px;
+border: 1px solid black;
+font-size: 15px;
+font-family: Arial;
+}
+#backButton:hover
+{
+	background: darkgrey;
+	color: white;
+	border: 1px solid white;
+	font-size: 18px;
+}
+#backButton:pressed
+{
+	background: white;
+	color: black;
+	border: 1px solid black;
+}</string>
+    </property>
+    <property name="text">
+     <string>Назад</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="dx_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>10</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="dy_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>40</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
+    <property name="text">
+     <string>dX</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>40</y>
+      <width>21</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
+    <property name="text">
+     <string>dY</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="xm_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>110</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ym_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>140</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="kx_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>190</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ky_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>220</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>110</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
+    <property name="text">
+     <string>Xm</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
+    <property name="text">
+     <string>Ym</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>190</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
+    <property name="text">
+     <string>kX</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>220</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
+    <property name="text">
+     <string>kY</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="yc_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>320</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="xc_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>290</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="angle_input">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>370</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>290</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
+    <property name="text">
+     <string>Xc</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>320</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
+    <property name="text">
+     <string>Yc</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>370</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;</string>
+    </property>
+    <property name="text">
+     <string>&lt;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>937</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
