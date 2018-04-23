@@ -1,6 +1,12 @@
 #include "mainwidget.h"
 #include "ui_mainwidget.h"
 #include "algorithms.h"
+#include <math.h>
+
+#define WIDTH 1000
+#define HEIGHT 1000
+
+#define PI 3.1415926535
 
 mainwidget::mainwidget(QWidget *parent) :
     QMainWindow(parent),
@@ -8,18 +14,15 @@ mainwidget::mainwidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    image = new QImage(651, 621, QImage::Format_ARGB32);
-
     scene = new QGraphicsScene();
-
-    scene->addPixmap(QPixmap::fromImage(*image));
-
     ui->graphicsView->setScene(scene);
 
-    //ui->graphicsView->centerOn(0, 0);
-    //ui->graphicsView->scene()->setSceneRect(-1000, -1000, 2000, 2000);
-    //ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    //ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->centerOn(0, 0);
+    ui->graphicsView->scene()->setSceneRect(-WIDTH, -HEIGHT, WIDTH * 2, HEIGHT * 2);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    image = QImage(WIDTH * 2, HEIGHT * 2, QImage::Format_ARGB32_Premultiplied);
 }
 
 mainwidget::~mainwidget()
@@ -47,9 +50,8 @@ void mainwidget::on_lineColor_clicked()
 
 void mainwidget::on_clearBtn_clicked()
 {
+    image.fill(Qt::white);
     scene->clear();
-    image->fill(Qt::red);
-    image->setPixel(1, 1, my_pen.color().rgb());
 }
 
 void mainwidget::on_lineBtn_clicked()
@@ -60,12 +62,53 @@ void mainwidget::on_lineBtn_clicked()
     double y2 = ui->y2_input->text().toDouble();
 
     if (ui->stdFlag->isChecked()) {
-        scene->addLine(x1, -y1, x2, -y2, my_pen);
+        scene->addLine(x1, y1, x2, y2, my_pen);
     } else if (ui->ddaFlag->isChecked()) {
-        DDA_line(scene, x1, -y1, x2, -y2, my_pen);
+        DDA_line(image, x1, y1, x2, y2, my_pen);
     } else if (ui->brFFlag->isChecked()) {
-        BREZ_float(scene, x1, -y1, x2, -y2, my_pen);
+        BREZ_float(image, x1, y1, x2, y2, my_pen);
     } else if (ui->brIntFlag->isChecked()) {
-        BREZ_int(scene, x1, -y1, x2, -y2, my_pen);
+        BREZ_int(image, x1, y1, x2, y2, my_pen);
+    } else if (ui->brSFlag->isChecked()) {
+        BREZ_smooth(image, x1, y1, x2, y2, my_pen);
     }
+
+    QPixmap pix = QPixmap(WIDTH * 2, HEIGHT * 2);
+    pix.convertFromImage(image);
+    scene->addPixmap(pix);
+}
+
+void mainwidget::on_sunBtn_clicked()
+{
+    double d = ui->d_input->text().toDouble();
+    double h = ui->h_input->text().toDouble();
+
+    double new_x, new_y;
+
+    int i = h;
+    while (i <= 360 && i >= -360) {
+        double w = d * sin((90 - i) * PI / 180);
+        double s = d * sin(i * PI / 180);
+
+        new_x = w;
+        new_y = -s;
+
+        if (ui->stdFlag->isChecked()) {
+            scene->addLine(0, 0, new_x, new_y, my_pen);
+        } else if (ui->ddaFlag->isChecked()) {
+            DDA_line(image, 0, 0, new_x, new_y, my_pen);
+        } else if (ui->brFFlag->isChecked()) {
+            BREZ_float(image, 0, 0, new_x, new_y, my_pen);
+        } else if (ui->brIntFlag->isChecked()) {
+            BREZ_int(image, 0, 0, new_x, new_y, my_pen);
+        } else if (ui->brSFlag->isChecked()) {
+            BREZ_smooth(image, 0, 0, new_x, new_y, my_pen);
+        }
+
+        i += h;
+    }
+
+    QPixmap pix = QPixmap(WIDTH * 2, HEIGHT * 2);
+    pix.convertFromImage(image);
+    scene->addPixmap(pix);
 }

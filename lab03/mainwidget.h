@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QColorDialog>
 #include <QGraphicsScene>
+#include <QImage>
 
 namespace Ui {
 class mainwidget;
@@ -26,11 +27,13 @@ private slots:
 
     void on_lineBtn_clicked();
 
+    void on_sunBtn_clicked();
+
 private:
     Ui::mainwidget *ui;
     QGraphicsScene *scene;
     QPen my_pen;
-    QImage *image;
+    QImage image;
 };
 
 #endif // MAINWIDGET_H
