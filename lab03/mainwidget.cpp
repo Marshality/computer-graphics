@@ -85,27 +85,21 @@ void mainwidget::on_sunBtn_clicked()
 
     double new_x, new_y;
 
-    int i = h;
-    while (i <= 360 && i >= -360) {
-        double w = d * sin((90 - i) * PI / 180);
-        double s = d * sin(i * PI / 180);
-
-        new_x = w;
-        new_y = -s;
+    for (int i = 0; i < 360; i += h) {
+        new_x = cos(i * PI / 180) * d + 255;
+        new_y = sin(i * PI / 180) * d + 255;
 
         if (ui->stdFlag->isChecked()) {
-            scene->addLine(0, 0, new_x, new_y, my_pen);
+            scene->addLine(255, 255, new_x, new_y, my_pen);
         } else if (ui->ddaFlag->isChecked()) {
-            DDA_line(image, 0, 0, new_x, new_y, my_pen);
+            DDA_line(image, 255, 255, new_x, new_y, my_pen);
         } else if (ui->brFFlag->isChecked()) {
-            BREZ_float(image, 0, 0, new_x, new_y, my_pen);
+            BREZ_float(image, 255, 255, new_x, new_y, my_pen);
         } else if (ui->brIntFlag->isChecked()) {
-            BREZ_int(image, 0, 0, new_x, new_y, my_pen);
+            BREZ_int(image, 255, 255, new_x, new_y, my_pen);
         } else if (ui->brSFlag->isChecked()) {
-            BREZ_smooth(image, 0, 0, new_x, new_y, my_pen);
+            BREZ_smooth(image, 255, 255, new_x, new_y, my_pen);
         }
-
-        i += h;
     }
 
     QPixmap pix = QPixmap(WIDTH * 2, HEIGHT * 2);
