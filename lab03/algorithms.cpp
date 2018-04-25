@@ -2,10 +2,19 @@
 #include <math.h>
 #include <stdlib.h>
 #include <iostream>
+#include "drawer.h"
 
 using namespace std;
 
+void drawPoint(QGraphicsScene *scene, double x, double y, QPen pen) {
+    Drawer *drawer = new Drawer();
 
+    drawer->x = x;
+    drawer->y = y;
+    drawer->color = pen;
+
+    scene->addItem(drawer);
+}
 
 double sign(double x) {
     if (x == 0)
@@ -13,9 +22,9 @@ double sign(double x) {
   return x / abs(x);
 }
 
-void DDA_line(QImage &image, double x1, double y1, double x2, double y2, QPen pen) {
+void DDA_line(QGraphicsScene *scene, double x1, double y1, double x2, double y2, QPen pen) {
     if (x1 == x2 && y1 == y2) {
-        image.setPixel(x1, y1, pen.color().rgb());
+        drawPoint(scene, x1, y1, pen);
         return;
     }
 
@@ -35,16 +44,18 @@ void DDA_line(QImage &image, double x1, double y1, double x2, double y2, QPen pe
     double dy = delta_y / length;
 
     while (length + 1 > 0) {
-        image.setPixel(round(x), round(y), pen.color().rgb());
+        drawPoint(scene, round(x), round(y), pen);
         x += dx;
         y += dy;
         length--;
     }
+
+    scene->update();
 }
 
-void BREZ_float(QImage &image, double x1, double y1, double x2, double y2, QPen pen) {
+void BREZ_float(QGraphicsScene *scene, double x1, double y1, double x2, double y2, QPen pen) {
     if ((x1 == x2) && (y1 = y2)) {
-        image.setPixel(x1, y1, pen.color().rgb());
+        drawPoint(scene, x1, y1, pen);
         return;
     }
 
@@ -74,7 +85,7 @@ void BREZ_float(QImage &image, double x1, double y1, double x2, double y2, QPen 
 
     int iterator = 1;
     while (iterator <= dx) {
-        image.setPixel(x, y, pen.color().rgb());
+        drawPoint(scene, x, y, pen);
 
         if (error >= 0) {
             if (change == false) y += sy;
@@ -90,11 +101,13 @@ void BREZ_float(QImage &image, double x1, double y1, double x2, double y2, QPen 
 
         iterator++;
     }
+
+    scene->update();
 }
 
-void BREZ_int(QImage &image, double x1, double y1, double x2, double y2, QPen pen) {
+void BREZ_int(QGraphicsScene *scene, double x1, double y1, double x2, double y2, QPen pen) {
     if ((x1 == x2) && (y1 = y2)) {
-        image.setPixel(x1, y1, pen.color().rgb());
+        drawPoint(scene, x1, y1, pen);
         return;
     }
 
@@ -123,7 +136,7 @@ void BREZ_int(QImage &image, double x1, double y1, double x2, double y2, QPen pe
 
     int iterator = 1;
     while (iterator <= dx) {
-        image.setPixel(x, y, pen.color().rgb());
+        drawPoint(scene, x, y, pen);
 
         if (error >= 0) {
             if (change == false) y += sy;
@@ -139,11 +152,13 @@ void BREZ_int(QImage &image, double x1, double y1, double x2, double y2, QPen pe
 
         iterator++;
     }
+
+    scene->update();
 }
 
-void BREZ_smooth(QImage &image, double x1, double y1, double x2, double y2, QPen pen) {
+void BREZ_smooth(QGraphicsScene *scene, double x1, double y1, double x2, double y2, QPen pen) {
     if (x1 == x2 && y1 == y2) {
-        image.setPixel(x1, y1, pen.color().rgb());
+        drawPoint(scene, x1, y1, pen);
         return;
     }
 
@@ -175,7 +190,7 @@ void BREZ_smooth(QImage &image, double x1, double y1, double x2, double y2, QPen
     double w = saturation - tg;
 
     pen.color() = pen.color().lighter(round(saturation / 2));
-    image.setPixel(x, y, pen.color().rgb());
+    drawPoint(scene, x, y, pen);
 
     while (dx + 1 > 0) {
         if (error <= w) {
@@ -189,8 +204,10 @@ void BREZ_smooth(QImage &image, double x1, double y1, double x2, double y2, QPen
         }
 
         pen.color() = pen.color().lighter(round(error));
-        image.setPixel(x, y, pen.color().rgb());
+        drawPoint(scene, x, y, pen);
         dx--;
     }
+
+    scene->update();
 }
 

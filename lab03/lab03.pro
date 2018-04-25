@@ -30,7 +30,8 @@ SOURCES += \
 
 HEADERS += \
         mainwidget.h \
-    algorithms.h
+    algorithms.h \
+    drawer.h
 
 FORMS += \
         mainwidget.ui

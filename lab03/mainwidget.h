@@ -33,7 +33,6 @@ private:
     Ui::mainwidget *ui;
     QGraphicsScene *scene;
     QPen my_pen;
-    QImage image;
 };
 
 #endif // MAINWIDGET_H

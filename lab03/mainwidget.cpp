@@ -21,8 +21,6 @@ mainwidget::mainwidget(QWidget *parent) :
     ui->graphicsView->scene()->setSceneRect(-WIDTH, -HEIGHT, WIDTH * 2, HEIGHT * 2);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
-    image = QImage(WIDTH * 2, HEIGHT * 2, QImage::Format_ARGB32_Premultiplied);
 }
 
 mainwidget::~mainwidget()
@@ -50,8 +48,8 @@ void mainwidget::on_lineColor_clicked()
 
 void mainwidget::on_clearBtn_clicked()
 {
-    image.fill(Qt::white);
     scene->clear();
+    scene->update();
 }
 
 void mainwidget::on_lineBtn_clicked()
@@ -64,18 +62,14 @@ void mainwidget::on_lineBtn_clicked()
     if (ui->stdFlag->isChecked()) {
         scene->addLine(x1, y1, x2, y2, my_pen);
     } else if (ui->ddaFlag->isChecked()) {
-        DDA_line(image, x1, y1, x2, y2, my_pen);
+        DDA_line(scene, x1, y1, x2, y2, my_pen);
     } else if (ui->brFFlag->isChecked()) {
-        BREZ_float(image, x1, y1, x2, y2, my_pen);
+        BREZ_float(scene, x1, y1, x2, y2, my_pen);
     } else if (ui->brIntFlag->isChecked()) {
-        BREZ_int(image, x1, y1, x2, y2, my_pen);
+        BREZ_int(scene, x1, y1, x2, y2, my_pen);
     } else if (ui->brSFlag->isChecked()) {
-        BREZ_smooth(image, x1, y1, x2, y2, my_pen);
+        BREZ_smooth(scene, x1, y1, x2, y2, my_pen);
     }
-
-    QPixmap pix = QPixmap(WIDTH * 2, HEIGHT * 2);
-    pix.convertFromImage(image);
-    scene->addPixmap(pix);
 }
 
 void mainwidget::on_sunBtn_clicked()
@@ -86,23 +80,19 @@ void mainwidget::on_sunBtn_clicked()
     double new_x, new_y;
 
     for (int i = 0; i < 360; i += h) {
-        new_x = cos(i * PI / 180) * d + 255;
-        new_y = sin(i * PI / 180) * d + 255;
+        new_x = cos(i * PI / 180) * d;
+        new_y = sin(i * PI / 180) * d;
 
         if (ui->stdFlag->isChecked()) {
-            scene->addLine(255, 255, new_x, new_y, my_pen);
+            scene->addLine(0, 0, new_x, new_y, my_pen);
         } else if (ui->ddaFlag->isChecked()) {
-            DDA_line(image, 255, 255, new_x, new_y, my_pen);
+            DDA_line(scene, 0, 0, new_x, new_y, my_pen);
         } else if (ui->brFFlag->isChecked()) {
-            BREZ_float(image, 255, 255, new_x, new_y, my_pen);
+            BREZ_float(scene, 0, 0, new_x, new_y, my_pen);
         } else if (ui->brIntFlag->isChecked()) {
-            BREZ_int(image, 255, 255, new_x, new_y, my_pen);
+            BREZ_int(scene, 0, 0, new_x, new_y, my_pen);
         } else if (ui->brSFlag->isChecked()) {
-            BREZ_smooth(image, 255, 255, new_x, new_y, my_pen);
+            BREZ_smooth(scene, 0, 0, new_x, new_y, my_pen);
         }
     }
-
-    QPixmap pix = QPixmap(WIDTH * 2, HEIGHT * 2);
-    pix.convertFromImage(image);
-    scene->addPixmap(pix);
 }
