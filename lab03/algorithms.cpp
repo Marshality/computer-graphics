@@ -80,7 +80,7 @@ void BREZ_float(QGraphicsScene *scene, double x1, double y1, double x2, double y
         change = true;
     }
 
-    double tg = dy / dx;
+    double tg = abs(dy / dx);
     double error = tg - 0.5;
 
     int iterator = 1;
@@ -171,6 +171,9 @@ void BREZ_smooth(QGraphicsScene *scene, double x1, double y1, double x2, double 
     double sx = sign(dx);
     double sy = sign(dy);
 
+    dx = abs(dx);
+    dy = abs(dy);
+
     bool change = false;
 
     double tg;
@@ -189,7 +192,10 @@ void BREZ_smooth(QGraphicsScene *scene, double x1, double y1, double x2, double 
     double error = 0.5;
     double w = saturation - tg;
 
-    pen.color() = pen.color().lighter(round(saturation / 2));
+    //LIGHTER
+    QColor new_pen = pen.color();
+    new_pen.setAlpha(100 + error);
+    pen.setColor(new_pen);
     drawPoint(scene, x, y, pen);
 
     while (dx + 1 > 0) {
@@ -203,7 +209,10 @@ void BREZ_smooth(QGraphicsScene *scene, double x1, double y1, double x2, double 
             error -= w;
         }
 
-        pen.color() = pen.color().lighter(round(error));
+        //LIGHTER
+        new_pen = pen.color();
+        new_pen.setAlpha(100 + error);
+        pen.setColor(new_pen);
         drawPoint(scene, x, y, pen);
         dx--;
     }

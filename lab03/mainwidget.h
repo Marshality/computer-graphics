@@ -19,6 +19,10 @@ public:
     ~mainwidget();
 
 private slots:
+    void lineBtnStatus();
+
+    void sunBtnStatus();
+
     void on_bgColor_clicked();
 
     void on_lineColor_clicked();
@@ -33,6 +37,7 @@ private:
     Ui::mainwidget *ui;
     QGraphicsScene *scene;
     QPen my_pen;
+    QBrush my_brush;
 };
 
 #endif // MAINWIDGET_H

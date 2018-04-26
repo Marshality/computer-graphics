@@ -2,6 +2,7 @@
 #include "ui_mainwidget.h"
 #include "algorithms.h"
 #include <math.h>
+#include <iostream>
 
 #define WIDTH 1000
 #define HEIGHT 1000
@@ -13,6 +14,24 @@ mainwidget::mainwidget(QWidget *parent) :
     ui(new Ui::mainwidget)
 {
     ui->setupUi(this);
+
+    QRegExp values("[-]{0,1}[0-9]{1,5}[.]{0,1}[0-9]{0,4}");
+    ui->x1_input->setValidator(new QRegExpValidator(values, this));
+    ui->x2_input->setValidator(new QRegExpValidator(values, this));
+    ui->y1_input->setValidator(new QRegExpValidator(values, this));
+    ui->y2_input->setValidator(new QRegExpValidator(values, this));
+    ui->h_input->setValidator(new QRegExpValidator(values, this));
+    ui->d_input->setValidator(new QRegExpValidator(values, this));
+
+    ui->lineBtn->setEnabled(false);
+    ui->sunBtn->setEnabled(false);
+
+    connect(ui->x1_input, SIGNAL(textChanged(QString)), this, SLOT(lineBtnStatus()));
+    connect(ui->x2_input, SIGNAL(textChanged(QString)), this, SLOT(lineBtnStatus()));
+    connect(ui->y1_input, SIGNAL(textChanged(QString)), this, SLOT(lineBtnStatus()));
+    connect(ui->y2_input, SIGNAL(textChanged(QString)), this, SLOT(lineBtnStatus()));
+    connect(ui->d_input, SIGNAL(textChanged(QString)), this, SLOT(sunBtnStatus()));
+    connect(ui->h_input, SIGNAL(textChanged(QString)), this, SLOT(sunBtnStatus()));
 
     scene = new QGraphicsScene();
     ui->graphicsView->setScene(scene);
@@ -28,6 +47,15 @@ mainwidget::~mainwidget()
     delete ui;
 }
 
+void mainwidget::lineBtnStatus() {
+    ui->lineBtn->setEnabled(!(ui->x1_input->text().isEmpty()) && !(ui->x2_input->text().isEmpty()) && \
+                            !(ui->y1_input->text().isEmpty()) && !(ui->y2_input->text().isEmpty()));
+}
+
+void mainwidget::sunBtnStatus() {
+    ui->sunBtn->setEnabled(!(ui->d_input->text().isEmpty()) && !(ui->h_input->text().isEmpty()));
+}
+
 void mainwidget::on_bgColor_clicked()
 {
     QColor color = QColorDialog::getColor(Qt::white, this, "Background color", QColorDialog::DontUseNativeDialog);
@@ -35,6 +63,7 @@ void mainwidget::on_bgColor_clicked()
     ui->bgView->setScene(tmp);
     ui->bgView->setBackgroundBrush(color);
     ui->graphicsView->setBackgroundBrush(color);
+    my_brush = color;
 }
 
 void mainwidget::on_lineColor_clicked()
