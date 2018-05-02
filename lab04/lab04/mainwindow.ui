@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>963</width>
+    <height>651</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: silver</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>10</y>
+      <width>681</width>
+      <height>631</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="canBtn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>320</y>
+      <width>181</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black; font-family: Menlo; font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string>Каноническое ур-ие</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="parBtn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>350</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black; font-family: Menlo; font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string>Параметрическое ур-ие</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="brezBtn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>380</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black; font-family: Menlo; font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string>Брезенхем</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="midBtn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>410</y>
+      <width>131</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black; font-family: Menlo; font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string>Средняя точка</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="stdBtn">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>440</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black; font-family: Menlo; font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string>Стандарт</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="menu">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>231</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black; font-family: Menlo; font-size: 13px;</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Окружность</string>
+     </attribute>
+     <widget class="QSpinBox" name="rSpin">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>14</y>
+        <width>61</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Радиус</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="drawCBtn">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>50</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#drawCBtn {
+color: black; 
+font-family: Menlo;
+ font-size: 13px;
+background: white
+}
+#drawCBtn:hover{
+ font-size: 14px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Нарисовать</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="cSSpin">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>110</y>
+        <width>61</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="cQSpin">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>150</y>
+        <width>61</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>110</y>
+        <width>21</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Шаг</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>150</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Кол-во</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="drawCCBtn">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>190</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#drawCCBtn {
+color: black; 
+font-family: Menlo;
+ font-size: 13px;
+background: white
+}
+#drawCCBtn:hover{
+ font-size: 14px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Центр</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Эллипс</string>
+     </attribute>
+     <widget class="QSpinBox" name="aSpin">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>10</y>
+        <width>61</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="bSpin">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>40</y>
+        <width>61</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>10</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>A</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>40</y>
+        <width>21</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>B</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="drawEBtn">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>80</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#drawEBtn {
+color: black; 
+font-family: Menlo;
+ font-size: 13px;
+background: white
+}
+#drawEBtn:hover{
+ font-size: 14px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Нарисовать</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="drawECBtn">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>200</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#drawECBtn {
+color: black; 
+font-family: Menlo;
+ font-size: 13px;
+background: white
+}
+#drawECBtn:hover{
+ font-size: 14px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Центр</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>120</y>
+        <width>21</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Шаг</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="eQSpin">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>160</y>
+        <width>61</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>160</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Кол-во</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="eSSpin_2">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>120</y>
+        <width>61</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QGraphicsView" name="bgView">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>490</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="lineView">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>530</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bgColor">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>493</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#bgColor {
+color: black; 
+font-family: Menlo;
+ font-size: 13px;
+background: white
+}
+#bgColor:hover{
+ font-size: 14px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Цвет фона</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lineColor">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>530</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#lineColor {
+color: black; 
+font-family: Menlo;
+ font-size: 13px;
+background: white
+}
+#lineColor:hover{
+ font-size: 14px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Цвет линии</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clearBtn">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>600</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#clearBtn {
+color: black; 
+font-family: Menlo;
+ font-size: 13px;
+background: white
+}
+#clearBtn:hover{
+ font-size: 14px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Очистить</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
