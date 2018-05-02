@@ -123,7 +123,7 @@
      <string notr="true">color: black; font-family: Menlo; font-size: 13px;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -399,7 +399,7 @@ background: white
        <string>Кол-во</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="eSSpin_2">
+     <widget class="QSpinBox" name="eSSpin">
       <property name="geometry">
        <rect>
         <x>100</x>

@@ -26,6 +26,12 @@ private slots:
 
     void on_drawCBtn_clicked();
 
+    void on_drawCCBtn_clicked();
+
+    void on_drawEBtn_clicked();
+
+    void on_drawECBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;

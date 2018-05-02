@@ -9,5 +9,9 @@ void circleCanon(QGraphicsScene *scene, int radius, QPen pen);
 void circleParam(QGraphicsScene *scene, double radius, QPen pen);
 void circleBrez(QGraphicsScene *scene, double radius, QPen pen);
 void circleMiddle(QGraphicsScene *scene, double radius, QPen pen);
+void ellipseCanon(QGraphicsScene *scene, double a, double b, QPen pen);
+void ellipseParam(QGraphicsScene *scene, double a, double b, QPen pen);
+void ellipseBrez(QGraphicsScene *scene, double a, double b, QPen pen);
+void ellipseMiddle(QGraphicsScene *scene, double a, double b, QPen pen);
 
 #endif // ALGORITHMS_H
