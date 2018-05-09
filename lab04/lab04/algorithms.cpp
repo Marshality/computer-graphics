@@ -118,10 +118,34 @@ void circleMiddle(QGraphicsScene *scene, double radius, QPen pen) {
     // начальные значения
     double x = 0;
     double y = radius;
+    double d = 1 - radius;
+    double p = 3; // (x + 1)^2 + (y - 1/2)^2 - r^2
+    double q = -2 * radius + 5;
 
-    double p = 5 / 4 - radius; // (x + 1)^2 + (y - 1/2)^2 - r^2
+    drawPoint(scene, -x, y, pen);
+    drawPoint(scene, x, -y, pen);
+    drawPoint(scene, -x, -y, pen);
+    drawPoint(scene, x, y, pen);
 
-    while (true) {
+    drawPoint(scene, -y, x, pen);
+    drawPoint(scene, y, -x, pen);
+    drawPoint(scene, -y, -x, pen);
+    drawPoint(scene, y, x, pen);
+
+    while (y > x) {
+        if (d < 0) {
+            d += p;
+            p += 2;
+            q += 2;
+            x++;
+        } else {
+            d += q;
+            p += 2;
+            q += 4;
+            x++;
+            y--;
+        }
+
         drawPoint(scene, -x, y, pen);
         drawPoint(scene, x, -y, pen);
         drawPoint(scene, -x, -y, pen);
@@ -131,17 +155,6 @@ void circleMiddle(QGraphicsScene *scene, double radius, QPen pen) {
         drawPoint(scene, y, -x, pen);
         drawPoint(scene, -y, -x, pen);
         drawPoint(scene, y, x, pen);
-
-        x++;
-
-        if (p < 0) { // средняя точка внутри окружности, ближе верхний пиксел, горизонтальный шаг
-            p += 2 * x + 1;
-        } else { // средняя точка вне окружности, ближе диагональный пиксел, диагональный шаг
-            p += 2 * x - 2 * y + 5;
-            y--;
-        }
-
-        if (x > y) break;
     }
 
     scene->update();
