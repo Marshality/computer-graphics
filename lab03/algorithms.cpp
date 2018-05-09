@@ -211,7 +211,7 @@ void BREZ_smooth(QGraphicsScene *scene, double x1, double y1, double x2, double 
 
         //LIGHTER
         new_pen = pen.color();
-        new_pen.setAlpha(100 + error);
+        new_pen.setAlpha(40 + error);
         pen.setColor(new_pen);
         drawPoint(scene, x, y, pen);
         dx--;
