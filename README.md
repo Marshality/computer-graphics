@@ -4,4 +4,4 @@
 - [x] Implement Affinity Transformations.
 - [x] Algorithms for decomposition of a segment into a raster.
 - [x] Algorithms for the decomposition of a circle (ellipse) into a raster.
-- [ ] Shape fill algorithm.
+- [x] Shape fill algorithm.
