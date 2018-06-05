@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1027</width>
+    <height>605</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Лабораторная работа 8</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: silver;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGraphicsView" name="view">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>10</y>
+      <width>561</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="table_rect">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>211</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+    <column>
+     <property name="text">
+      <string>X</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Y</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="paint">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>340</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#paint {
+background: grey; 
+color: pink;
+ font-family: Menlo;
+ border: 1px solid black; 
+border-radius: 8px;
+font-size: 14px;
+}
+#paint:hover {
+	color: green;
+	font-size: 15px;
+	background: white;
+}
+#paint:pressed {
+	font-size: 15px;
+	color: darkgreen;
+	background: darkgrey;
+}</string>
+    </property>
+    <property name="text">
+     <string>Отсечение</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="lock">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>300</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#lock {
+background: grey; 
+color: pink;
+ font-family: Menlo;
+ border: 1px solid black; 
+border-radius: 8px;
+font-size: 14px;
+}
+#lock:hover {
+	color: green;
+	font-size: 15px;
+	background: white;
+}
+#lock:pressed {
+	font-size: 15px;
+	color: darkgreen;
+	background: darkgrey;
+}</string>
+    </property>
+    <property name="text">
+     <string>Замкнуть</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="erase">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>550</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#erase {
+background: grey; 
+color: pink;
+ font-family: Menlo;
+ border: 1px solid black; 
+border-radius: 8px;
+font-size: 14px;
+}
+#erase:hover {
+	color: green;
+	font-size: 15px;
+	background: white;
+}
+#erase:pressed {
+	font-size: 15px;
+	color: darkgreen;
+	background: darkgrey;
+}</string>
+    </property>
+    <property name="text">
+     <string>Очистка</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bars">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>330</y>
+      <width>161</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#bars {
+background: grey; 
+color: pink;
+ font-family: Menlo;
+ border: 1px solid black; 
+border-radius: 8px;
+font-size: 14px;
+}
+#bars:hover {
+	color: green;
+	font-size: 15px;
+	background: white;
+}
+#bars:pressed {
+	font-size: 15px;
+	color: darkgreen;
+	background: darkgrey;
+}</string>
+    </property>
+    <property name="text">
+     <string>Ввод отрезков</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rect">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>290</y>
+      <width>161</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#rect {
+background: grey; 
+color: pink;
+ font-family: Menlo;
+ border: 1px solid black; 
+border-radius: 8px;
+font-size: 14px;
+}
+#rect:hover {
+	color: green;
+	font-size: 15px;
+	background: white;
+}
+#rect:pressed {
+	font-size: 15px;
+	color: darkgreen;
+	background: darkgrey;
+}</string>
+    </property>
+    <property name="text">
+     <string>Ввод отсекателя</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="table_bars">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>10</y>
+      <width>211</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white</string>
+    </property>
+    <column>
+     <property name="text">
+      <string>A</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>B</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="ect">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>370</y>
+      <width>161</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#ect {
+background: grey; 
+color: pink;
+ font-family: Menlo;
+ border: 1px solid black; 
+border-radius: 8px;
+font-size: 14px;
+}
+#ect:hover {
+	color: green;
+	font-size: 15px;
+	background: white;
+}
+#ect:pressed {
+	font-size: 15px;
+	color: darkgreen;
+	background: darkgrey;
+}</string>
+    </property>
+    <property name="text">
+     <string>Парал. отрезок</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
