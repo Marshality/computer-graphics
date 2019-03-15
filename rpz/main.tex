@@ -1,4 +1,5 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,14pt]{article}
+\usepackage[14pt]{extsizes}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
@@ -28,10 +29,13 @@
 \renewcommand{\theenumiii}{.\arabic{enumiii}}
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}
 \renewcommand{\thesection}{\arabic{section}.}
-\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
-\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
+
+\renewcommand{\baselinestretch}{1.3}
 
 \newcommand*{\No}{\textnumero}
+\newcommand{\anonsection}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
 
 \usepackage{color} %% отображение цвета в коде
 \usepackage{listings} %% пакет listings
@@ -69,4 +73,6 @@
 \begin{document}
 	\input{title}
 	\tableofcontents
+	\input{./content/intro}
+	\input{./content/analytic}
 \end{document}
